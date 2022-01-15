@@ -79,6 +79,7 @@ class BookApplicationTests {
             vegetablesService.save(v);
         }
     }
+    //萨达
 //    @Test
 //    void  GetVegetableMonth(){
 //        List<Vegetables> vegetablesList = vegetablesService.list(new LambdaQueryWrapper<Vegetables>()
