@@ -37,85 +37,41 @@ class BookApplicationTests {
 //        sysUserEntity.setMobile("13321181799");
 //        SysUserServiceImpl.save(sysUserEntity);
 //    }
-    private static String TTT="2021-11-18";
-    private static String str ="大白菜毛菜0.5一0.8\n" +
-            "净菜0.7一1\n" +
-            "菠菜1.8一2.3\n" +
-            "香菜2.5一4\n" +
-            "茴香2一3\n" +
-            "韭菜2一3.2\n" +
-            "小白菜0.5一0.7\n" +
-            "小油菜0.8一1.2\n" +
-            "大葱1.5一2.2\n" +
-            "小葱2.8一5\n" +
-            "茄子2一2.5\n" +
-            "黄瓜2一2.3\n" +
-            "芹菜1.6一2\n" +
-            "散花3一5\n" +
-            "甘蓝1.6一2\n" +
-            "白萝卜0.6一0.7\n" +
-            "西红柿1.6一2\n" +
-            "小冬瓜0.3一0.45\n" +
-            "大冬瓜0.3一0.35\n" +
-            "小吊瓜0.3一0.5\n" +
-            "干瓜0.5一0.6\n" +
-            "尖椒1.4一1.7\n" +
-            "红线椒1.2一2\n" +
-            "线椒1.4一1.6\n" +
-            "芸豆1.6一2\n" +
-            "白不老2一3.2\n" +
-            "彩椒1.6一2\n" +
-            "圆椒1.8一3.1\n" +
-            "生菜0.8一1\n" +
-            "油麦1.8一2.45\n" +
-            "土豆0.5一0.9\n" +
-            "红薯0.6一0.7\n" +
-            "西瓜红薯1一1.2\n" +
-            "花生3.8一4.1";
-    @Test
+    private static String TTT="2022-03-15";
+    private static String str ="韭菜1.8一1.95\n" +
+            "香菜1.7一1.85\n" +
+            "茴香1.8一2.1\n" +
+            "香菜1.6一2\n" +
+            "芹菜1一1.6\n" +
+            "菠菜1一1.2\n" +
+            "油麦1.2一1.8\n" +
+            "生菜1.3一1.6\n" +
+            "羊角葱1一1.5\n" +
+            "小葱1.5一1.9\n" +
+            "大葱3一3.6\n" +
+            "尖椒4.6一5\n" +
+            "甘蓝0.6一0.8\n" +
+            "茼蒿1一1.6\n" +
+            "普罗旺斯西红柿4.5一4.7\n" +
+            "西红柿2一2.9\n" +
+            "白萝卜0.6一0.8\n" +
+            "红萝卜1一1.3\n" +
+            "圆椒2一2.6\n" +
+            "圆茄子2.6一2.9\n" +
+            "娃娃菜1一1.3\n" +
+            "紫皮葱头0.7一0.85\n" +
+            "蘑菇2.8一3\n" +
+            "小白菜1一1.3\n" +
+            "小油菜1.6一2\n" +
+            "红皮土豆0.7一0.8\n" +
+            "土豆0.6一0.65";
+//    @Test
     void SaveVegetables() {
         List<Vegetables> vegetables = dealVegStr();
         for (Vegetables v:vegetables) {
             vegetablesService.save(v);
         }
     }
-    //萨达
-//    @Test
-//    void  GetVegetableMonth(){
-//        List<Vegetables> vegetablesList = vegetablesService.list(new LambdaQueryWrapper<Vegetables>()
-//                .groupBy(Vegetables::getCreateTime)
-//                .select(Vegetables::getCreateTime));
-//        StringBuilder sbf= new StringBuilder();
-//        sbf.append("[");
-//        for (Vegetables vegetables:vegetablesList) {
-//            sbf.append(String.format("\"%s\"",vegetables.getCreateTime()));
-//            sbf.append(",");
-//        }
-//        sbf.append("]");
-//        System.out.println(sbf.toString());
-//    }
-//    @Test
-//    void  GetVegetablePric(){
-//        QueryWrapper<Vegetables> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.like("name","甘蓝");
-//        List<Vegetables> vegetablesList = vegetablesService.list(queryWrapper);
-//        StringBuilder sbf= new StringBuilder();
-//        sbf.append("[");
-//        for (Vegetables vegetables:vegetablesList) {
-//            sbf.append(String.format("%s",vegetables.getAve()));
-//            sbf.append(",");
-//        }
-//        sbf.append("]");
-//        System.out.println(sbf.toString());
-//        sbf= new StringBuilder();
-//        sbf.append("[");
-//        for (Vegetables vegetables:vegetablesList) {
-//            sbf.append(String.format("\"%s\"",vegetables.getCreateTime()));
-//            sbf.append(",");
-//        }
-//        sbf.append("]");
-//        System.out.println(sbf.toString());
-//    }
 
     public static List<Vegetables> dealVegStr(){
         List<Vegetables> list = new ArrayList<Vegetables>();
@@ -175,4 +131,11 @@ class BookApplicationTests {
         return arr;
     }
 
+    @Test
+    public void addWeather() {
+        //https://api.binstd.com/weather2/query?appkey=b7656633b2c60ec1&city=%E7%9F%B3%E5%AE%B6%E5%BA%84&date=2016-01-01
+
+
+
+    }
 }

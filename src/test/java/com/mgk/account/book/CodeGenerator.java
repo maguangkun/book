@@ -60,18 +60,19 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://47.94.217.183:3306/account_book?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/account_book?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("1qaz!QAZ");
+        dsc.setPassword("123456");
+        //dsc.setPassword("1qaz!QAZ");
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setParent("com.mgk.account.book.modules");
         pc.setModuleName("manager");
-        pc.setEntity("entity");
+        pc.setEntity("pojo");
         pc.setService("service");
         pc.setController("controller");
         pc.setMapper("dao");
@@ -136,8 +137,8 @@ public class CodeGenerator {
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
-        String[] strArray={"vegetablespricestats","sys_user"};
-        strategy.setExclude(strArray);
+//        String[] strArray={"vegetablespricestats","sys_user"};
+//        strategy.setExclude(strArray);
         //strategy.setControllerMappingHyphenStyle(true);
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
@@ -148,8 +149,9 @@ public class CodeGenerator {
 //        //strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
 //        // 写于父类中的公共字段
 ////        strategy.setSuperEntityColumns("id");
-//        //strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
-//        strategy.setControllerMappingHyphenStyle(true);
+       // strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
+        strategy.setInclude(scanner("Weather").split(","));
+        strategy.setControllerMappingHyphenStyle(true);
 //        strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
 //        mpg.setTemplateEngine(new FreemarkerTemplateEngine());

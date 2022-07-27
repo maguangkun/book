@@ -18,6 +18,9 @@ public class Vegetables {
        private String createTime;
        private String user;
        private String weather;
+       private String remark;//备注
+        private String specification;//品质
+        private String unit;//单位
 
     public String getUser() {
         return user;
@@ -44,7 +47,12 @@ public class Vegetables {
                 ", height='" + height + '\'' +
                 ", ave='" + ave + '\'' +
                 ", region='" + region + '\'' +
-                ", createTime=" + createTime +
+                ", createTime='" + createTime + '\'' +
+                ", user='" + user + '\'' +
+                ", weather='" + weather + '\'' +
+                ", remark='" + remark + '\'' +
+                ", specification='" + specification + '\'' +
+                ", unit='" + unit + '\'' +
                 '}';
     }
 

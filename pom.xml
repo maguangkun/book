@@ -40,6 +40,7 @@
         <fastjson.version>1.2.72</fastjson.version>
         <hutool.version>4.1.1</hutool.version>
         <lombok.version>1.18.4</lombok.version>
+        <csv.version>4.6</csv.version>
 
         <!--wagon plugin 配置-->
         <service-path>/work/renren</service-path>
@@ -50,6 +51,13 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${csv.version}</version>
+        </dependency>
+
         <!-- ======BEGIN jwt ====== -->
         <dependency>
             <groupId>com.auth0</groupId>
