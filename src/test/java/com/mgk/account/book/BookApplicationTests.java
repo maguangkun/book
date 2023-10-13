@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mgk.account.book.common.utils.HttpClientUtil;
+import com.mgk.account.book.common.utils.WeatherUtil;
 import com.mgk.account.book.modules.manager.pojo.WeatherDO;
 import com.mgk.account.book.modules.manager.service.WeatherService;
 import com.mgk.account.book.modules.user.service.SysUserService;
@@ -162,33 +163,32 @@ class BookApplicationTests {
             WeatherServiceImpl.save(result);
             calendar.add(Calendar.DATE, 1);
         }
+    }
 
-
-
-
-
-
-
-
-//        String json = httpClientUtil.get("https://api.binstd.com/weather2/query?appkey=b7656633b2c60ec1&city=石家庄&date=2018-01-01");
-//        System.out.println(json);
-//        WeatherDO result = JSONObject.parseObject(json).getObject("result", WeatherDO.class);
-//        result.setCreateTime(LocalDateTime.now());
-//        WeatherServiceImpl.save(result);
-//        System.out.println(result);
+    @Test
+    public void getWeatherList() throws ParseException {
+        List<WeatherDO> list = WeatherServiceImpl.list();
+        for (WeatherDO WeatherDO :list) {
+            WeatherDO.setWindpower(WeatherDO.getWindpower().replace("级",""));
+            WeatherDO.setWeatherCode(WeatherUtil.GetWeather(WeatherDO.getWeather()));
+            WeatherDO.setDateCode(WeatherDO.getDate().replace("-",""));
+            WeatherDO.setWinddiretCode(WeatherUtil.GetWinddirect(WeatherDO.getWinddirect()));
+            WeatherServiceImpl.saveOrUpdate(WeatherDO);
+        }
     }
 
     public static void main(String[] args) throws ParseException {
-        SimpleDateFormat  sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = sdf.parse("2016-09-14");
-        //Date  date = new Date(2017,6,7);
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(date);
-// 把日期往后增加一天,整数  往后推,负数往前移动
-        calendar.add(Calendar.DATE, 1);
-// 这个时间就是日期往后推一天的结果
-        date=calendar.getTime();
-//
-//
+      String date ="2016-11-12";
+        byte[] bytes = date.getBytes();
+        int[] ints = bytearray2intarray(bytes);
+        System.out.println(ints);
+    }
+    public static int[] bytearray2intarray(byte[] barray)
+    {
+        int[] iarray = new int[barray.length];
+        int i = 0;
+        for (byte b : barray)
+            iarray[i++] = b & 0xff;
+        return iarray;
     }
 }

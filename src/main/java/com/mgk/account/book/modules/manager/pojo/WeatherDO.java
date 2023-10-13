@@ -151,4 +151,34 @@ public class WeatherDO extends AbstractBaseDO {
     private String aqi;
     private String primarypollutant;
     private String winddirect;
+
+    public String getWeatherCode() {
+        return weatherCode;
+    }
+
+    public void setWeatherCode(String weatherCode) {
+        this.weatherCode = weatherCode;
+    }
+
+
+    public String getDateCode() {
+        return dateCode;
+    }
+
+    public void setDateCode(String dateCode) {
+        this.dateCode = dateCode;
+    }
+
+    private String weatherCode;
+    private String winddiretCode;
+
+    public String getWinddiretCode() {
+        return winddiretCode;
+    }
+
+    public void setWinddiretCode(String winddiretCode) {
+        this.winddiretCode = winddiretCode;
+    }
+
+    private String dateCode;
 }
